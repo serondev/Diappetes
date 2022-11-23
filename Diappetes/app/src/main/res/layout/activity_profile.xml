@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_diappetes"
+    tools:context=".ProfileActivity">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="240dp"
+        android:layout_height="210dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/diappetes_logo" />
+
+    <TextView
+        android:id="@+id/tv_today"
+        android:layout_width="240dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:text="Today"
+        android:textColor="@color/custom_color_primary"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLogo" />
+
+    <ImageView
+        android:id="@+id/imgLoading"
+        android:layout_width="212dp"
+        android:layout_height="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/loading" />
+
+    <ImageView
+        android:id="@+id/imageAverage"
+        android:layout_width="126dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hexagon_background" />
+
+    <ImageView
+        android:id="@+id/imageCarbs"
+        android:layout_width="126dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741"
+        app:srcCompat="@drawable/hexagon_background" />
+
+    <ImageView
+        android:id="@+id/imgBolus"
+        android:layout_width="126dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741"
+        app:srcCompat="@drawable/hexagon_background" />
+
+    <ImageView
+        android:id="@+id/imgBasal"
+        android:layout_width="126dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="264dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.741"
+        app:srcCompat="@drawable/hexagon_background" />
+
+    <ImageView
+        android:id="@+id/imageMax"
+        android:layout_width="126dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hexagon_background" />
+
+    <ImageView
+        android:id="@+id/imageMin"
+        android:layout_width="126dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="264dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hexagon_background" />
+
+    <TextView
+        android:id="@+id/tv_average"
+        android:layout_width="122dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:text="Average"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageCarbs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageAverage"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <TextView
+        android:id="@+id/tv_max"
+        android:layout_width="122dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="144dp"
+        android:text="Max."
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageCarbs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageMax"
+        app:layout_constraintVertical_bias="0.541" />
+
+    <TextView
+        android:id="@+id/tv_min"
+        android:layout_width="122dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="272dp"
+        android:text="Min."
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageCarbs"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageMin"
+        app:layout_constraintVertical_bias="0.541" />
+
+    <TextView
+        android:id="@+id/tv_carb"
+        android:layout_width="122dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Carb"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageCarbs" />
+
+    <TextView
+        android:id="@+id/tv_bolus"
+        android:layout_width="122dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="16dp"
+        android:text="Bolus"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBolus" />
+
+    <TextView
+        android:id="@+id/tv_basal"
+        android:layout_width="122dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="272dp"
+        android:layout_marginTop="16dp"
+        android:text="Basal"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgBasal" />
+
+    <TextView
+        android:id="@+id/tv_average_value"
+        android:layout_width="54dp"
+        android:layout_height="41dp"
+        android:text="117"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textColor="@color/custom_color_white"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageAverage"
+        app:layout_constraintEnd_toEndOf="@+id/imageAverage"
+        app:layout_constraintStart_toStartOf="@+id/imageAverage"
+        app:layout_constraintTop_toTopOf="@+id/imageAverage" />
+
+    <TextView
+        android:id="@+id/tv_carb_value"
+        android:layout_width="59dp"
+        android:layout_height="64dp"
+        android:text="314 g"
+        android:textAlignment="center"
+        android:textColor="@color/custom_color_white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCarbs"
+        app:layout_constraintEnd_toEndOf="@+id/imageCarbs"
+        app:layout_constraintStart_toStartOf="@+id/imageCarbs"
+        app:layout_constraintTop_toTopOf="@+id/imageCarbs" />
+
+    <TextView
+        android:id="@+id/tv_bolus_value"
+        android:layout_width="75dp"
+        android:layout_height="64dp"
+        android:text="46.5 N"
+        android:textAlignment="center"
+        android:textColor="@color/custom_color_white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBolus"
+        app:layout_constraintEnd_toEndOf="@+id/imgBolus"
+        app:layout_constraintStart_toEndOf="@+id/imageCarbs"
+        app:layout_constraintTop_toTopOf="@+id/imgBolus" />
+
+    <TextView
+        android:id="@+id/tv_bolus_value2"
+        android:layout_width="75dp"
+        android:layout_height="64dp"
+        android:text="8 : 41  H"
+        android:textAlignment="center"
+        android:textColor="@color/custom_color_white"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imgBasal"
+        app:layout_constraintEnd_toEndOf="@+id/imgBasal"
+        app:layout_constraintStart_toEndOf="@+id/imgBolus"
+        app:layout_constraintTop_toTopOf="@+id/imgBasal" />
+
+    <TextView
+        android:id="@+id/tv_max_value"
+        android:layout_width="54dp"
+        android:layout_height="41dp"
+        android:text="187"
+        android:textAlignment="center"
+        android:textColor="@color/custom_color_white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageMax"
+        app:layout_constraintEnd_toEndOf="@+id/imageMax"
+        app:layout_constraintStart_toEndOf="@+id/imageAverage"
+        app:layout_constraintTop_toTopOf="@+id/imageMax" />
+
+    <TextView
+        android:id="@+id/tv_min_value"
+        android:layout_width="54dp"
+        android:layout_height="41dp"
+        android:text="74"
+        android:textAlignment="center"
+        android:textColor="@color/custom_color_white"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageMin"
+        app:layout_constraintEnd_toEndOf="@+id/imageMin"
+        app:layout_constraintStart_toEndOf="@+id/imageMax"
+        app:layout_constraintTop_toTopOf="@+id/imageMin" />
+
+    <Button
+        android:id="@+id/button_home"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/ic_baseline_home_24"
+        android:text="Home"
+        android:backgroundTint="@color/custom_color_primary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bolus"
+        app:layout_constraintVertical_bias="0.468" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
