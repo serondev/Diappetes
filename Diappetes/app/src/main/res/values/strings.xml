@@ -3,4 +3,5 @@
     <string name="get_started">Get Started</string>
     <string name="open">Open</string>
     <string name="close">Close</string>
+    <string name="chooser_title">Connect</string>
 </resources>

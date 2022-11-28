@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_diappetes"
+    android:id="@+id/drawerLayout"
     tools:context=".ProfileActivity">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imgLogo"
@@ -23,7 +27,7 @@
         android:layout_width="240dp"
         android:layout_height="40dp"
         android:layout_marginTop="8dp"
-        android:text="Today"
+        android:text="Enter Factors"
         android:textColor="@color/custom_color_primary"
         android:textStyle="bold"
         android:textAlignment="center"
@@ -110,9 +114,9 @@
         android:layout_width="122dp"
         android:layout_height="37dp"
         android:layout_marginStart="16dp"
-        android:text="Average"
+        android:text="Enter Breakfast Factor"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toTopOf="@+id/imageCarbs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageAverage"
@@ -123,9 +127,9 @@
         android:layout_width="122dp"
         android:layout_height="37dp"
         android:layout_marginStart="144dp"
-        android:text="Max."
+        android:text="Enter Lunch Factor"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/imageCarbs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageMax"
@@ -136,9 +140,9 @@
         android:layout_width="122dp"
         android:layout_height="37dp"
         android:layout_marginStart="272dp"
-        android:text="Min."
+        android:text="Enter Dinner Factor"
         android:textAlignment="center"
-        android:textSize="24sp"
+        android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/imageCarbs"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageMin"
@@ -150,7 +154,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="Carb"
+        android:text="BRKFST"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +166,7 @@
         android:layout_height="37dp"
         android:layout_marginStart="144dp"
         android:layout_marginTop="16dp"
-        android:text="Bolus"
+        android:text="LNCH"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -174,31 +178,32 @@
         android:layout_height="37dp"
         android:layout_marginStart="272dp"
         android:layout_marginTop="16dp"
-        android:text="Basal"
+        android:text="DNNR"
         android:textAlignment="center"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imgBasal" />
 
-    <TextView
-        android:id="@+id/tv_average_value"
+    <EditText
+        android:id="@+id/tv_bf_factor"
         android:layout_width="54dp"
         android:layout_height="41dp"
-        android:text="117"
         android:textAlignment="center"
-        android:textStyle="bold"
+        android:hint="10"
+        android:maxLength="2"
+        android:textStyle="normal"
         android:textColor="@color/custom_color_white"
-        android:textSize="28sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageAverage"
         app:layout_constraintEnd_toEndOf="@+id/imageAverage"
         app:layout_constraintStart_toStartOf="@+id/imageAverage"
         app:layout_constraintTop_toTopOf="@+id/imageAverage" />
 
     <TextView
-        android:id="@+id/tv_carb_value"
-        android:layout_width="59dp"
-        android:layout_height="64dp"
-        android:text="314 g"
+        android:id="@+id/tv_bf_value"
+        android:layout_width="58dp"
+        android:layout_height="48dp"
+        android:hint=""
         android:textAlignment="center"
         android:textColor="@color/custom_color_white"
         android:textSize="24sp"
@@ -209,10 +214,10 @@
         app:layout_constraintTop_toTopOf="@+id/imageCarbs" />
 
     <TextView
-        android:id="@+id/tv_bolus_value"
-        android:layout_width="75dp"
-        android:layout_height="64dp"
-        android:text="46.5 N"
+        android:id="@+id/tv_lnch_value"
+        android:layout_width="58dp"
+        android:layout_height="48dp"
+        android:hint=""
         android:textAlignment="center"
         android:textColor="@color/custom_color_white"
         android:textSize="26sp"
@@ -223,10 +228,10 @@
         app:layout_constraintTop_toTopOf="@+id/imgBolus" />
 
     <TextView
-        android:id="@+id/tv_bolus_value2"
-        android:layout_width="75dp"
-        android:layout_height="64dp"
-        android:text="8 : 41  H"
+        android:id="@+id/tv_dinner_value"
+        android:layout_width="58dp"
+        android:layout_height="48dp"
+        android:hint=""
         android:textAlignment="center"
         android:textColor="@color/custom_color_white"
         android:textSize="26sp"
@@ -236,46 +241,72 @@
         app:layout_constraintStart_toEndOf="@+id/imgBolus"
         app:layout_constraintTop_toTopOf="@+id/imgBasal" />
 
-    <TextView
-        android:id="@+id/tv_max_value"
+    <EditText
+        android:id="@+id/tv_lunch_factor"
         android:layout_width="54dp"
         android:layout_height="41dp"
-        android:text="187"
         android:textAlignment="center"
         android:textColor="@color/custom_color_white"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
+        android:maxLength="2"
+        android:hint="10"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageMax"
         app:layout_constraintEnd_toEndOf="@+id/imageMax"
         app:layout_constraintStart_toEndOf="@+id/imageAverage"
         app:layout_constraintTop_toTopOf="@+id/imageMax" />
 
-    <TextView
-        android:id="@+id/tv_min_value"
+    <EditText
+        android:id="@+id/tv_dinner_factor"
         android:layout_width="54dp"
         android:layout_height="41dp"
-        android:text="74"
         android:textAlignment="center"
         android:textColor="@color/custom_color_white"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:textSize="20sp"
+        android:hint="10"
+        android:maxLength="2"
+        android:textStyle="normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageMin"
         app:layout_constraintEnd_toEndOf="@+id/imageMin"
         app:layout_constraintStart_toEndOf="@+id/imageMax"
         app:layout_constraintTop_toTopOf="@+id/imageMin" />
 
     <Button
-        android:id="@+id/button_home"
+        android:id="@+id/button_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:icon="@drawable/ic_baseline_home_24"
-        android:text="Home"
         android:backgroundTint="@color/custom_color_primary"
+        android:text="Logout"
+        app:icon="@drawable/ic_baseline_home_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.846"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_bolus"
-        app:layout_constraintVertical_bias="0.468" />
+        app:layout_constraintVertical_bias="0.593" />
+
+    <Button
+        android:id="@+id/button_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/custom_color_primary"
+        android:text="Enter"
+        app:icon="@drawable/ic_baseline_input_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button_logout"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_bolus"
+        app:layout_constraintVertical_bias="0.593" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/nav_menu"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
