@@ -30,7 +30,6 @@ import java.util.jar.Manifest
 class MainActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityMainBinding
-    @RequiresApi(Build.VERSION_CODES.M)
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,9 +77,14 @@ class MainActivity : AppCompatActivity() {
             startActivity(smsIntent)
         }
         button_bluetooth.setOnClickListener {
-            val intent = Intent(this, BluetoothMainActivity::class.java)
-            startActivity(intent)
+            BluetoothConnection().connect("12:C2:EB:18:C2:77")
+            BluetoothConnection().readData()
+            BluetoothConnection().disconnect()
         }
+
+
+
+
 
     }
 

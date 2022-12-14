@@ -25,6 +25,9 @@ class ProfileActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(R.id.drawerLayout)
         val navView: NavigationView = findViewById(R.id.nav_view_profile)
         val headerView = navView.getHeaderView(0)
+        val bfFactor = binding.tvBfFactor.text.toString()
+        val lunchFactor = binding.tvLunchFactor.text.toString()
+        val dinnerFactor = binding.tvDinnerFactor.text.toString()
         headerView.user_name.text = "Diappetes Menu"
         toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
         drawerLayout.addDrawerListener(toggle)
@@ -60,12 +63,9 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         button_enter.setOnClickListener {
-            val bfAverage = tv_bf_factor.text.toString()
-            val lunchAverage = tv_lunch_factor.text.toString()
-            val dinnerAverage = tv_dinner_factor.text.toString()
-            tv_bf_value.text = bfAverage.toString()
-            tv_lnch_value.text = lunchAverage.toString()
-            tv_dinner_value.text = dinnerAverage.toString()
+            tv_bf_value.text = bfFactor
+            tv_lnch_value.text = lunchFactor
+            tv_dinner_value.text = dinnerFactor
         }
 
 
@@ -78,3 +78,4 @@ class ProfileActivity : AppCompatActivity() {
     }
 
 }
+

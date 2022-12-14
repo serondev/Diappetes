@@ -1,6 +1,7 @@
 package com.serkanonder.diappetes
 
 import android.R
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Bundle
@@ -16,10 +17,12 @@ import com.google.android.material.navigation.NavigationView
 import com.serkanonder.diappetes.databinding.ActivityCalculatorBinding
 import kotlinx.android.synthetic.main.activity_calculator.*
 import kotlinx.android.synthetic.main.nav_header.view.*
+import java.time.Year
 
 class CalculatorActivity : AppCompatActivity() {
     lateinit var toggle: ActionBarDrawerToggle
     lateinit var binding: ActivityCalculatorBinding
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCalculatorBinding.inflate(layoutInflater)
@@ -27,6 +30,8 @@ class CalculatorActivity : AppCompatActivity() {
         val drawerLayout: DrawerLayout = findViewById(com.serkanonder.diappetes.R.id.drawerLayout_calculator)
         val navView: NavigationView = findViewById(com.serkanonder.diappetes.R.id.nav_view_calculator)
         val headerView = nav_view_calculator.getHeaderView(0)
+        var totalCarbs : Int = 0
+        val totalBolus : Int = 0
         headerView.user_name.text = "Diappetes Menu"
         toggle = ActionBarDrawerToggle(this, drawerLayout, com.serkanonder.diappetes.R.string.open, com.serkanonder.diappetes.R.string.close)
         drawerLayout_calculator.addDrawerListener(toggle)
@@ -53,13 +58,95 @@ class CalculatorActivity : AppCompatActivity() {
             }
             true
         }
-        val foods = arrayOf("Mercimek Çorbası","Ezogelin Çorbası","Tarhana Çorbası","Şakşuka","Kısır","Lahmacun","Mercimek Köfte","Yaprak Dolma","Inegöl Köfte",
-        "İskender","Cağ Kebap","Beyti","Hamsili Pilav","Perde Pilavı","Testi Kebap","Su Böreği","Tepsi Böreği","Menemen","Biber Dolması",
-        "Barbunya","Imam Bayıldı","Mücver","Türlü","Karnıyarık","Musakka","Ali Nazik","Kıymalı Pide","Kuzu Tandır","Kuzu Şiş","Kuzu Pirzola","Sucuklu Yumurta","Ezme",
-        "Beyaz Ekmek","Kepekli Ekmek","Tam Buğday Ekmeği","Yumurta","Poğaça(Pastane)","Kaymak","Katmer","Künefe","Gözleme","Bazlama","Simit","Açma",
-        "Aşure","Çilbir","Nevzine","Karışık Tost","Kaşarlı Tost","Kavurmalı Tost","Omlet")
-        val foodsAdapter : ArrayAdapter<String> = ArrayAdapter<String>(this,
-            R.layout.simple_list_item_1,foods)
+
+        val foods = arrayOf(
+            Pair("Lahmacun",50),
+            Pair("Baklava",25),
+            Pair("Köfte",0),
+            Pair("Kebap",45),
+            Pair("Kuru Fasulye",80),
+            Pair("Mercimek Çorbası",20),
+            Pair("Kuru Baklagil",50),
+            Pair("Pizza(Dilim)",25),
+            Pair("Peynirli Sandviç",30),
+            Pair("Ekmek(Dilim)",15),
+            Pair("Tavuk",0),
+            Pair("Et",0),
+            Pair("Balık",0),
+            Pair("Meyve",15),
+            Pair("Sebze",0),
+            Pair("Süt",5),
+            Pair("Yoğurt",5),
+            Pair("Süt Ürünleri",5),
+            Pair("Mantı( 1 Porsiyon)",80),
+            Pair("Makarna( 5 Kaşık)",32),
+            Pair("Pilav( 5 Kaşık)",37),
+            Pair("Patates( 1 Adet)",15),
+            Pair("Patates Kızartması( 1 Adet)",50),
+            Pair("Kuru Baklagil( 1 Porsiyon)",50),
+            Pair("Tavuklu Patates Kızartması( 1 Porsiyon)",63),
+            Pair("Tavuklu Makarna( 1 Porsiyon)",40),
+            Pair("Zeytin",0),
+            Pair("Yulaf Ezmesi (100g)",53),
+            Pair("Pancake (1 Adet)",12),
+            Pair("Sucuklu Tost (Adet)",20),
+            Pair("Kaşarlı Tost (Adet)",20),
+            Pair("Kek (1 Dilim)",15),
+            Pair("Börek (1 Dilim)",25),
+            Pair("Patatesli Börek (1 Adet)",25),
+            Pair("Sosis",0),
+            Pair("Kahvaltılık Meyve (Orta Boy)",10),
+            Pair("Kabak Çiçeği Dolması (Tane)",15),
+            Pair("Gözlemes (1 Adet)",30),
+            Pair("Peynir",0),
+            Pair("Kekik",0),
+            Pair("Kırmızı Biber",0),
+            Pair("Yeşil Biber",0),
+            Pair("Domates",0),
+            Pair("Patlıcan",0),
+            Pair("Havuç",0),
+            Pair("Kabak",0),
+            Pair("Kuru Soğan",0),
+            Pair("Maydanoz",0),
+            Pair("Salatalık",0),
+            Pair("Sarımsak",0),
+            Pair("Zeytin Yağı",0),
+            Pair("İncir",10),
+            Pair("Kavun",10),
+            Pair("Kivi",10),
+            Pair("Mandalina",10),
+            Pair("Muz",20),
+            Pair("Portakal",10),
+            Pair("Şeftali",15),
+            Pair("Üzüm",20),
+            Pair("Yaban Mersini",10),
+            Pair("Kayısı",4),
+            Pair("Karpuz",10),
+            Pair("Bal Kabağı",7),
+            Pair("Kuru Kayısı",6),
+            Pair("Kuru Üzüm",3),
+            Pair("Kuru Çilek",3),
+            Pair("Kuru Kavun",10),
+            Pair("Kuru Muz",3),
+            Pair("Kuru Portakal",5),
+            Pair("Kuru Şeftali",4),
+            Pair("Kuru Yaban Mersini",3),
+            Pair("Fındık (Bir Avuç)",3),
+            Pair("Fıstık (Bir Avuç)",4),
+            Pair("Badem (Bir Avuç)",3),
+            Pair("Kaju (Bir Avuç)",5),
+            Pair("Karışık Kuruyemiş (Bir Fincan)",5),
+            Pair("Bal (2.5 Tatlı Kaşığı)",20),
+            Pair("Cici Bebe Bisküvi (Tane)",5),
+            Pair("Çikolata (3 Küçük Parça)",30),
+            Pair("Pekmez (1 Yemek Kaşığı)",20),
+            Pair("Petibör (3 Adet)",18),
+            Pair("Marmelat (1 Yemek Kaşığı)",20),
+            Pair("Tahin Helva)",30),
+            Pair("Etli Yaprak Sarma (6 Adet)",22),
+
+        )
+        val foodsAdapter = ArrayAdapter(this, R.layout.simple_list_item_1, foods.map { it.first })
         val mealAdapter : ArrayAdapter<String> = ArrayAdapter<String>(this,
             R.layout.simple_list_item_1)
         binding.foodList.adapter = foodsAdapter;
@@ -67,8 +154,8 @@ class CalculatorActivity : AppCompatActivity() {
         binding.swFoods.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 binding.swFoods.clearFocus()
-                if(foods.contains(query)){
-                    foodsAdapter.filter.filter(query)
+                if (query != null) {
+                    binding.foodList.smoothScrollToPosition(foodsAdapter.getPosition(query))
                 }
                 return false
             }
@@ -110,13 +197,16 @@ class CalculatorActivity : AppCompatActivity() {
                 mealAdapter.add(selectedFood)
             }
         }
-        binding.buttonDelete.setOnClickListener {
-            mealAdapter.clear()
-        }
         binding.buttonCalculate.setOnClickListener {
             tv_bolus.visibility = View.VISIBLE
-            tv_bolus.text = "Cannot calculate yet."
+            totalCarbs = foods.filter { mealAdapter.getPosition(it.first) != -1 }.map { it.second }.sum()
+            tv_bolus.text = "Total Carbohydrate : "+ totalCarbs.toString() + "g"
     }
+        binding.buttonDelete.setOnClickListener {
+            mealAdapter.clear()
+            totalCarbs == 0
+            tv_bolus.visibility = View.INVISIBLE
+        }
 }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
