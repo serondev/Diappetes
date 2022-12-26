@@ -15,14 +15,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Diappetes">
         <activity
-            android:name=".CalculatorService"
+            android:name=".FatSecretActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".FatSecretActivity"
+            android:name=".CalculatorService"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
@@ -78,7 +78,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

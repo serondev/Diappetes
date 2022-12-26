@@ -1,22 +1,16 @@
 package com.serkanonder.diappetes
 
 import android.annotation.SuppressLint
-import android.bluetooth.BluetoothAdapter
-import android.bluetooth.BluetoothDevice
+import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
-import android.content.pm.PackageManager
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
+import android.provider.Settings
 import android.view.MenuItem
-import android.view.View
 import android.widget.*
-import androidx.annotation.RequiresApi
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.serkanonder.diappetes.databinding.ActivityMainBinding
@@ -24,7 +18,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.nav_header.*
 import kotlinx.android.synthetic.main.nav_header.view.*
 import java.util.*
-import java.util.jar.Manifest
 
 
 class MainActivity : AppCompatActivity() {
@@ -76,10 +69,18 @@ class MainActivity : AppCompatActivity() {
             }
             startActivity(smsIntent)
         }
-        button_bluetooth.setOnClickListener {
-            BluetoothConnection().connect("12:C2:EB:18:C2:77")
-            BluetoothConnection().readData()
-            BluetoothConnection().disconnect()
+        btnPairDevices.setOnClickListener {
+            val intent = Intent(Settings.ACTION_BLUETOOTH_SETTINGS)
+            startActivity(intent)
+
+        }
+        button_sugar_level.setOnClickListener {
+            val intent = Intent(Intent.ACTION_MAIN)
+            intent.component = ComponentName("com.omfaer.bluetoothcontrol", "com.omfaer.bluetoothcontrol.MainActivity")
+            startActivity(intent)
+
+
+
         }
 
 

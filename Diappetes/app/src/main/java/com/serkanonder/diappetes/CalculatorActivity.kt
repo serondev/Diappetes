@@ -144,6 +144,27 @@ class CalculatorActivity : AppCompatActivity() {
             Pair("Marmelat (1 Yemek Kaşığı)",20),
             Pair("Tahin Helva)",30),
             Pair("Etli Yaprak Sarma (6 Adet)",22),
+            Pair("Etli Kabak Dolması (1 Orta Boy)",20),
+            Pair("Etli Lahana Sarma (3 Adet)",22),
+            Pair("Zeytinyağlı Biber Dolma (1 Orta Boy",17),
+            Pair("Zeytinyağlı Lahana Sarma (3 Adet)",40),
+            Pair("Zeytinyağlı Yaprak Sarma (6 Adet)",30),
+            Pair("Lahmacun",30),
+            Pair("Kıymalı Pide",60),
+            Pair("Patates Salatası (3 Yemek Kaşığı)",8),
+            Pair("Mercimek Köftesi",7),
+            Pair("İçli Köfte ",20),
+            Pair("Kısır (3 Yemek Kaşığı)",15),
+            Pair("Mücver",5),
+            Pair("Çiğ Köfte",7),
+            Pair("Yaş Pasta (1 Dilim)",45),
+            Pair("Dondurma (1 Top)",10),
+            Pair("Muhallebi",55),
+            Pair("Su Böreği",20),
+            Pair("Gözleme (Peynir/Kıyma)",60),
+            Pair("Yumurta",0),
+            Pair("Ayran",5)
+
 
         )
         val foodsAdapter = ArrayAdapter(this, R.layout.simple_list_item_1, foods.map { it.first })
