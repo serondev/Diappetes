@@ -2,7 +2,7 @@
 
 Diappetes is an application designed for diabetes patients, which can monitor instant blood sugar, help you make an appointment with the necessary departments of hospitals, count carbohydrates and record your past measurements.
 
-![Logo](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/th5xamgrr6se0x5ro4g6.png)
+![Logo](https://github.com/serondev/Diappetes/blob/main/diappetes1.png)
 
     
 ## Screenshots
