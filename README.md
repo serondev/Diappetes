@@ -27,7 +27,7 @@ Diappetes is an application designed for diabetes patients, which can monitor in
 
 - [@serondev](https://www.github.com/serondev) - Serkan Önder
 - [@okaino](https://github.com/okaino) - Korhan Okan Ertepe
-- [@odeniizyavuz](https://github.com/deniizyavuz) - Deniz Yavuz
+- [@deniizyavuz](https://github.com/deniizyavuz) - Deniz Yavuz
 - [@kaldurfrost](https://github.com/kaldurfrost) - Murat Mahir Kul
 
 - Special thanks to our instructor Cansu Çiğdem Ekin for her hard work and help.
